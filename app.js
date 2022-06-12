@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
 const sauceRoutes = require('./routes/sauce');
+const userRoutes = require('./routes/user');
 
 // création d'une constante app qui sera notre application
 
@@ -32,6 +33,7 @@ app.use((req, res, next) => {
 app.use(bodyParser.json());
 
 app.use('/api/sauce', sauceRoutes);
+app.use('/api/auth', userRoutes);
 
 // on exporte cette constante pour pouvoir y accéder depuis les autres fichiers du projet, notamment le serveur node
 module.exports = app;
