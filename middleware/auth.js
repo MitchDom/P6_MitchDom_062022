@@ -1,5 +1,6 @@
+// appel du package jsonwebtoken
 const jwt = require('jsonwebtoken');
-
+// exportation du middleware
 module.exports = (req, res, next) => {
     try {
         const token = req.headers.authorization.split(' ')[1];
@@ -8,9 +9,9 @@ module.exports = (req, res, next) => {
         if (req.body.userId && req.body.userId !== userId) {
             throw 'User ID non valable !';
         } else {
-            next()
+            next();
         }
     } catch (error) {
-        res.status(401).json({ error: error | 'Requête non authentifiée !' });
+        res.status(401).json({ error: error | 'Requête non authentifiée !'})
     }
 };
